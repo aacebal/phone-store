@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhoneService } from '../phone.service'
+import { PhoneService } from '../phone.service';
 
 @Component({
   selector: 'app-phone-list',

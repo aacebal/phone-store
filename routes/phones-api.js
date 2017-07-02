@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+const upload = require('../configs/multer');
 
 const Phone = require('../models/phone-model');
 
@@ -14,23 +15,22 @@ router.get('/phones', (req, res, next) => {
   });
 });
 
-router.post('/phones', (req, res, next) => {
-  const thePhone = new Phone({
+router.post('/', upload.single('file'), function(req, res) {
+  const phone = new Phone({
+    name: req.body.name,
     brand: req.body.brand,
-    name: req. body.name,
-    specs: req.body.specs,
-    image: req.body.image || ''
+    image: `/uploads/${req.file.filename}`,
+    specs: JSON.parse(req.body.specs) || []
   });
 
-  thePhone.save((err) => {
+  phone.save((err) => {
     if (err) {
-      res.json(err);
-      return;
+      return res.send(err);
     }
 
-    res.json({
+    return res.json({
       message: 'New Phone created!',
-      id: thePhone._id
+      phone: phone
     });
   });
 });
