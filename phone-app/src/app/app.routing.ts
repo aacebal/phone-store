@@ -6,7 +6,7 @@ import { AddPhoneComponent } from './add-phone/add-phone.component';
 
 export const routes: Routes = [
     { path: '', component: PhoneListComponent },
-    { path: 'phone/:id', component: PhoneDetailsComponent },
     { path: 'add', component: AddPhoneComponent },
+    { path: 'phone/:id', component: PhoneDetailsComponent },
     { path: '**', redirectTo: '' }
 ];

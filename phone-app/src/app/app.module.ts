@@ -4,7 +4,7 @@ import { RouterModule } from "@angular/router";
 import { routes } from './app.routing';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileSelectDirective, FileUploader } from "ng2-file-upload";
 
 import { AppComponent } from './app.component';
 import { PhoneListComponent } from './phone-list/phone-list.component';
@@ -17,6 +17,7 @@ import { AddPhoneComponent } from './add-phone/add-phone.component';
     PhoneListComponent,
     PhoneDetailsComponent,
     FileSelectDirective,
+    FileUploader,
     AddPhoneComponent
   ],
   imports: [
