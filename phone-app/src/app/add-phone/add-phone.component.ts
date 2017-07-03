@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUploader } from "ng2-file-upload";
+import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { Subject }    from 'rxjs/Subject';
 
 @Component({
   selector: 'app-add-phone',
@@ -8,7 +9,7 @@ import { FileUploader } from "ng2-file-upload";
 })
 
 export class AddPhoneComponent implements OnInit {
-  public uploader: FileUploader = new FileUploader({
+  uploader: FileUploader = new FileUploader({
     url: `/phones/`
   });
 
