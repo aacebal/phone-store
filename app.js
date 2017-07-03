@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const upload = require('../configs/multer.js');
 
 var index = require('./routes/index');
 var phonesApi = require('./routes/phones-api');
@@ -29,7 +30,7 @@ app.use('/', index);
 app.use('/api', phonesApi);
 
 app.use(function(req, res) {
-  res.sendfile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 // catch 404 and forward to error handler
