@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const upload = require('../configs/multer.js');
+const upload = require('./configs/multer.js');
 
 var index = require('./routes/index');
 var phonesApi = require('./routes/phones-api');
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api', phonesApi);
+app.use('/', phonesApi);
 
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');

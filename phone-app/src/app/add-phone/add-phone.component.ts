@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload';
 import { Subject }    from 'rxjs/Subject';
 
 @Component({
@@ -10,7 +10,7 @@ import { Subject }    from 'rxjs/Subject';
 
 export class AddPhoneComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `/phones/`
+    url: `/phones`
   });
 
   newPhone = {
@@ -25,11 +25,12 @@ export class AddPhoneComponent implements OnInit {
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
+      this.feedback = response;
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
+      console.log("onErrorItem");
+      this.feedback = response;
     };
   }
 
