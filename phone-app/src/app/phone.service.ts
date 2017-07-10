@@ -9,22 +9,22 @@ export class PhoneService {
   constructor( private http: Http ) { }
 
   getList() {
-    return this.http.get(`${this.BASE_URL}/phones`)
+    return this.http.get(`${this.BASE_URL}/api/phones`)
       .map((res) => res.json());
   }
 
   get(id) {
-    return this.http.get(`${this.BASE_URL}/phones/${id}`)
+    return this.http.get(`${this.BASE_URL}/api/phones/${id}`)
       .map((res) => res.json());
   }
 
   edit(phone) {
-    return this.http.put(`${this.BASE_URL}/phones/${phone.id}`, phone)
+    return this.http.put(`${this.BASE_URL}/api/phones/${phone.id}`, phone)
       .map((res) => res.json());
   }
 
   remove(id) {
-   return this.http.delete(`${this.BASE_URL}/phones/${id}`)
+   return this.http.delete(`${this.BASE_URL}/api/phones/${id}`)
      .map((res) => res.json());
  }
 

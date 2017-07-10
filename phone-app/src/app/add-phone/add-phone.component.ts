@@ -10,7 +10,7 @@ import { Subject }    from 'rxjs/Subject';
 
 export class AddPhoneComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `/phones`
+    url: `http://localhost:3000/api/upload`
   });
 
   newPhone = {
@@ -34,15 +34,10 @@ export class AddPhoneComponent implements OnInit {
     };
   }
 
-  addSpec(spec) {
-    this.newPhone.specs.push(spec);
-  }
-
   submit() {
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', this.newPhone.name);
       form.append('brand', this.newPhone.brand);
-      form.append('specs', JSON.stringify(this.newPhone.specs));
     };
 
     this.uploader.uploadAll();

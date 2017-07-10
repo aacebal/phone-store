@@ -15,13 +15,12 @@ router.get('/phones', (req, res, next) => {
   });
 });
 
-router.post('/phones', upload.single('file'), function(req, res) {
-  console.log("posting");
+router.post('/upload', upload.single('file'), function(req, res) {
   const phone = new Phone({
     name: req.body.name,
     brand: req.body.brand,
-
-    specs: JSON.parse(req.body.specs) || []
+    image: `/uploads/phone-pictures/${req.file.filename}`,
+    specs:  []
   });
 
   phone.save((err) => {

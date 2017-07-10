@@ -4,7 +4,8 @@ import { RouterModule } from "@angular/router";
 import { routes } from './app.routing';
 import { FormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
-import { FileSelectDirective, FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { PhoneService } from './phone.service'
 
 import { AppComponent } from './app.component';
 import { PhoneListComponent } from './phone-list/phone-list.component';
@@ -16,16 +17,17 @@ import { AddPhoneComponent } from './add-phone/add-phone.component';
     AppComponent,
     PhoneListComponent,
     PhoneDetailsComponent,
-    AddPhoneComponent
+    AddPhoneComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    FileUploadModule
   ],
-  providers: [],
+  providers: [PhoneService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
